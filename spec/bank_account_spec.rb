@@ -34,11 +34,11 @@ describe 'Bank account' do
     end
 
     it 'accepts deposits' do
-      expect{ @account.deposit("1/1/2001", 500) }.not_to raise_error
+      expect{ @account.deposit("10/01/2012", 1000) }.not_to raise_error
     end
 
     it 'when user deposits money, increases balance by that value' do
-      expect{ @account.deposit("1/1/2001", 500) }.to (change{ @account.showBalance }).by(500)
+      expect{ @account.deposit("10/01/2012", 1000) }.to (change{ @account.showBalance }).by(1000)
     end
   end
 
@@ -49,11 +49,11 @@ describe 'Bank account' do
     end
 
     it 'accepts withdrawals' do
-      expect{ @account.withdraw("1/1/2001", 500) }.not_to raise_error
+      expect{ @account.withdraw("14/01/2012", 500) }.not_to raise_error
     end
 
     it 'when user withdraws money, decreases balance by that value' do
-      expect{ @account.withdraw("1/1/2001", 500) }.to (change{ @account.showBalance }).by(-500)
+      expect{ @account.withdraw("14/01/2012", 500) }.to (change{ @account.showBalance }).by(-500)
     end
   end
 
@@ -64,9 +64,9 @@ describe 'Bank account' do
     end
 
     it 'records the date, type and value of each transaction' do
-      expect{ @account.deposit("1/1/2001", 1500) }.to (change{ @account.showTransactions.length }).by(1)
-      expect{ @account.withdraw("5/1/2001", 500) }.to (change{ @account.showTransactions.length }).by(1)
-      expect(@account.showTransactions).to eq([["1/1/2001", 1500, 1500], ["5/1/2001", -500, 1000]])
+      expect{ @account.deposit("10/01/2012", 1000) }.to (change{ @account.showTransactions.length }).by(1)
+      expect{ @account.withdraw("14/01/2012", 500) }.to (change{ @account.showTransactions.length }).by(1)
+      expect(@account.showTransactions).to eq([["14/01/2012", -500, 500], ["10/01/2012", 1000, 1000]])
     end
 
     it 'when user requests a statement, returns 2records of all transactions made with date and value' do
