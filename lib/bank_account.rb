@@ -5,6 +5,7 @@ DEFAULT_BALANCE = 0
   def initialize
     @balance = DEFAULT_BALANCE
     @transactions = []
+    @transactionsHeader = ["date", "credit", "debit", "balance"]
   end
 
   def showBalance
@@ -30,14 +31,21 @@ DEFAULT_BALANCE = 0
   end
 
   def printStatement
-    puts
-    puts " date  \t\t|| credit || debit \t || balance"
+    lineWidth = 50
+
     @transactions.each do |transaction|
-      if transaction[1] == 0
-        puts transaction[0] + "\t|| " + transaction[1].to_s + " \t " + " || " + " \t " + "|| " + transaction[2].to_s
-      else
-        puts transaction[0] + "\t|| " + " \t " + " || " + transaction[1].to_s  + " \t " + "|| " + transaction[2].to_s
+      transaction[1] > 0 ?  transaction.insert(2, " ") :  transaction.insert(1, " ")
+    end
+
+    @transactions.insert(0, @transactionsHeader)
+
+    puts
+    @transactions.each do |transaction|
+      for i in 0..2 do
+        print transaction[i].to_s.center(lineWidth/4)
+        print "||"
       end
+      puts transaction[3].to_s.center(lineWidth/4)
     end
   end
 end

@@ -11,7 +11,7 @@ Create a model of a bank account with which the user can interact to make depos
 
 ### Testing:
 
-Since this is a relatively simple program with only one class (bank_account), I have put all the tests in the same file.
+Since this is a relatively simple program with only one class (bank_account), I've put all the tests in the same file.
 They're split into context blocks which cover the different behaviours of the class.
 
 Enter 'rspec' on the command line to run the suite of tests.
