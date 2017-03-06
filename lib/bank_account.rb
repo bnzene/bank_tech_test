@@ -39,7 +39,7 @@ DEFAULT_BALANCE = 0
 
   private
 
-  def addEmptyColumn
+  def addEmptyCell
     @transactions.each do |transaction|
       transaction[1] > 0 ?  transaction.insert(2, " ") :  transaction.insert(1, " ")
     end
