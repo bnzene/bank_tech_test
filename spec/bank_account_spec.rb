@@ -73,7 +73,7 @@ describe 'Bank account' do
       @account.deposit("10/01/2012", 1000)
       @account.deposit("13/01/2012", 2000)
       @account.withdraw("14/01/2012", 500)
-      expect{ @account.printStatement}.to eq(@account.showTransactions.unshift(" date  \t\t|| credit || debit \t || balance"))
+      expect(@account.printStatement).to eq(@account.showTransactions.unshift(" date  \t\t|| credit || debit \t || balance"))
     end
   end
 
