@@ -3,3 +3,8 @@ source "https://rubygems.org"
 
 # gem "rails"
 gem 'rspec'
+gem 'reek'
+gem 'preek'
+gem 'travis'
+gem 'rake'
+gem 'coveralls', require: true

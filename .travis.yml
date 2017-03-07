@@ -1,0 +1,6 @@
+  script: "bundle exec rspec spec",
+  rvm: "2.4.0",
+  language: ruby,
+  group: stable,
+  dist: precise,
+  os: linux
